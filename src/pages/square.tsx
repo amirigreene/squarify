@@ -25,8 +25,9 @@ function Square() {
     return <div>Loading</div>;
   }
 
-  return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[20rem]" />;// {number = tile}
+  return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[30rem]" />;// {number = tile}
 }
+//make button that converts canvas(tiles) to image (jpg) and then begins download
 
 async function getUrls(
   timeRange: "short_term" | "medium_term" | "long_term"
@@ -88,6 +89,8 @@ function Tiles({ urls, tileHeight, tileWidth, className = "" }: TileProps) {
       };
     }
   }, [canvasRef, urls, tileWidth, tileHeight]);
-
-  return <canvas width="3000"ref={canvasRef} className={className}/>;
+  const saveableImage = canvasRef.current.toDataURL();
+  return <canvas width="3000"ref={saveableImage} className={className}/>;
 }
+
+
