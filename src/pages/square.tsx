@@ -89,7 +89,7 @@ function Tiles({ urls, tileHeight, tileWidth, className = "" }: TileProps) {
       };
     }
   }, [canvasRef, urls, tileWidth, tileHeight]);
-  const saveableImage = canvasRef.current.toDataURL();
+  const saveableImage = canvasRef.current.toDataURL('image/jpeg',1.0);
   return <canvas width="3000"ref={saveableImage} className={className}/>;
 }
 
