@@ -25,7 +25,7 @@ function Square() {
     return <div>Loading</div>;
   }
 
-  return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[40rem]" />;// {number = tile}
+  return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[20rem]" />;// {number = tile}
 }
 
 async function getUrls(
