@@ -18,7 +18,7 @@ function Square() {
   const [urls, setUrls] = useState<string[]>();
 
   useEffect(() => {
-    getUrls("short_term").then((result) => setUrls(result)); //medium_term & long_term
+    getUrls("long_term").then((result) => setUrls(result)); //medium_term & long_term
   }, []);
 
   if (!urls) {
@@ -89,7 +89,7 @@ function Tiles({ urls, tileHeight, tileWidth, className = "" }: TileProps) {
       };
     }
   }, [canvasRef, urls, tileWidth, tileHeight]);
-
+ 
   return <canvas width="3000"ref={canvasRef} className={className}/>;
   
 }
