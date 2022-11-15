@@ -18,14 +18,14 @@ function Square() {
   const [urls, setUrls] = useState<string[]>();
 
   useEffect(() => {
-    getUrls("long_term").then((result) => setUrls(result)); //medium_term & long_term
+    getUrls("medium_term").then((result) => setUrls(result)); //medium_term & long_term
   }, []);
 
   if (!urls) {
     return <div>Loading</div>;
   }
 
-  return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[30rem]" />;// {number = tile}
+  return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[25em]" />;// {number = tile}
 }
 //make button that converts canvas(tiles) to image (jpg) and then begins download
 //const saveableImage = canvasRef.current.toDataURL('image/jpeg',1.0);
