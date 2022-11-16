@@ -95,7 +95,7 @@ function Tiles({ urls, tileHeight, tileWidth, className = "" }: TileProps) {
 }
 
 
-  const canvasElement = document.getElementById("canvasRef.current") as HTMLCanvasElement;
-  const saveableImage = canvasElement.toDataURL;
-  console.log(saveableImage)
+  //const canvasElement = document.getElementById("canvasRef.current") as HTMLCanvasElement;
+  //const saveableImage = canvasElement.toDataURL;
+  //console.log(saveableImage)
 
