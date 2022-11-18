@@ -18,13 +18,12 @@ function Square() {
   const [urls, setUrls] = useState<string[]>();
 
   useEffect(() => {
-    getUrls("medium_term").then((result) => setUrls(result)); //medium_term & long_term
+    getUrls("short_term").then((result) => setUrls(result)); //medium_term & long_term
   }, []);
 
   if (!urls) {
     return <div>Loading</div>;
   }
-
   return <Tiles urls={urls} tileHeight={3} tileWidth={3} className="w-[25em]" />;// {number = tile}
 }
 //make button that converts canvas(tiles) to image (jpg) and then begins download
@@ -72,7 +71,7 @@ function Tiles({ urls, tileHeight, tileWidth, className = "" }: TileProps) {
       return;
     }
     canvas.height = (canvas.width / tileWidth) * tileHeight;
-    console.log(canvas.width, canvas.height)
+    //console.log(canvas.width, canvas.height);
     const ctx = canvas.getContext("2d");
     const nineUrls = urls.slice(0, tileHeight * tileWidth);
     for (const [i, url] of nineUrls.entries()) {
@@ -88,14 +87,16 @@ function Tiles({ urls, tileHeight, tileWidth, className = "" }: TileProps) {
         );
       };
     }
-  }, [canvasRef, urls, tileWidth, tileHeight]);
+    
+    //HAVE TO USE "useRef()"in place of document.getElementById("")
+   
+
+   
+  }, [canvasRef, urls, tileWidth, tileHeight]); 
+  //onst dataURI=canvasRef.current?.toDataURL();
+    //console.log(dataURI)
+  return <div>
+    <canvas width="3000"ref={canvasRef} className={className}/>
+        </div>;
  
-  return <canvas width="3000"ref={canvasRef} className={className}/>;
-  
 }
-
-
-  //const canvasElement = document.getElementById("canvasRef.current") as HTMLCanvasElement;
-  //const saveableImage = canvasElement.toDataURL;
-  //console.log(saveableImage)
-
